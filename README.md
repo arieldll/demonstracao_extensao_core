@@ -1,11 +1,10 @@
-# demonstracao_extensao_core
-Demonstração de extensão do core utilizando OpenAPI
+Demonstração de extensão do core free5GC utilizando OpenAPI
 
 Para começar, vamos instalar o OpenAPI. A instalação se baseou no seguinte link: https://openapi-generator.tech/docs/installation/
 
 Começando... 
 
-Instalar o OpenAPI CLI
+Primeiro passo: Instalar o OpenAPI CLI
 
 ```
 $ sudo apt-get install curl
@@ -55,7 +54,13 @@ $ openapi-generator-cli version-manager set 5.3.0
 Agora, na linha abaixo, vamos gerar o nosso yaml baseado na linguagem de programação selecionada: 
 
 ```
-$ npx @openapitools/openapi-generator-cli generate -i petstore.yaml -g ruby -o /tmp/test/
+$ npx @openapitools/openapi-generator-cli generate -i TSFunction.yaml -g (language: go) -o /tmp/test/ 
 ```
 
+Caso o comando apresente problemas de validação de SPEC, adicione o parâmetro --skip-validate-spec
 
+```
+$ npx @openapitools/openapi-generator-cli generate -i TSFunction.yaml -g (language: go) -o /tmp/test/ --skip-validate-spec
+```
+
+Se tudo estiver correto, as classes serão geradas. Como esqueleto, verifique o arquivo nef.go deste repositório, como o exemplo de uma função que se registra à NRF no endereço http://127.0.0.10:8000
